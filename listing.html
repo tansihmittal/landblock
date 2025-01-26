@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LandBlock - NFT Land Marketplace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f1624 0%, #1a2b3c 100%);
+            color: #e0e7ff;
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #6ee7b7 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto px-6 max-w-7xl">
+        <header class="py-6 flex justify-between items-center">
+            <a href="index.html">
+                <div class="text-3xl font-bold gradient-text">LandBlock</div>
+
+            </a>
+            <nav class="flex space-x-4">
+                <button class="px-5 py-2 bg-gray-700 text-white rounded-full">Connect Wallet</button>
+            </nav>
+        </header>
+
+        <main>
+            <section class="mb-12">
+                <div class="grid grid-cols-4 gap-6">
+                    <div class="col-span-1 bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-bold mb-6 gradient-text">Filter Lands</h3>
+                        
+                        <div class="space-y-6" id="filterSection">
+                            <div>
+                                <label class="block mb-2 text-gray-300">Location</label>
+                                <select id="locationFilter" class="w-full bg-gray-700 text-white p-2 rounded-lg">
+                                    <option value="">All Regions</option>
+                                    <option value="California">California</option>
+                                    <option value="Colorado">Colorado</option>
+                                    <option value="Texas">Texas</option>
+                                    <option value="Arizona">Arizona</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block mb-2 text-gray-300">Land Type</label>
+                                <div class="space-y-2">
+                                    <div class="flex items-center">
+                                        <input type="checkbox" value="Agricultural" class="landTypeFilter mr-2" />
+                                        <span>Agricultural</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" value="Development" class="landTypeFilter mr-2" />
+                                        <span>Development</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" value="Residential" class="landTypeFilter mr-2" />
+                                        <span>Residential</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block mb-2 text-gray-300">Price Range</label>
+                                <div class="flex space-x-2">
+                                    <input 
+                                        type="number" 
+                                        id="minPrice"
+                                        placeholder="Min" 
+                                        class="w-1/2 bg-gray-700 text-white p-2 rounded-lg"
+                                    />
+                                    <input 
+                                        type="number" 
+                                        id="maxPrice"
+                                        placeholder="Max" 
+                                        class="w-1/2 bg-gray-700 text-white p-2 rounded-lg"
+                                    />
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block mb-2 text-gray-300">Risk Level</label>
+                                <select id="riskFilter" class="w-full bg-gray-700 text-white p-2 rounded-lg">
+                                    <option value="">All Risks</option>
+                                    <option value="Low">Low Risk</option>
+                                    <option value="Medium">Medium Risk</option>
+                                    <option value="High">High Risk</option>
+                                </select>
+                            </div>
+
+                            <button id="applyFilters" class="w-full bg-gradient-to-r from-green-400 to-blue-500 text-white py-3 rounded-lg">
+                                Apply Filters
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-span-3">
+                        <div class="flex justify-between mb-6">
+                            <input 
+                                type="text" 
+                                id="searchInput"
+                                placeholder="Search lands by location, type, or characteristics" 
+                                class="w-full mr-4 bg-gray-800 text-white p-3 rounded-lg"
+                            />
+                            <select id="sortSelect" class="bg-gray-800 text-white p-3 rounded-lg">
+                                <option value="price">Sort by Price</option>
+                                <option value="newest">Newest</option>
+                                <option value="risk">Risk Level</option>
+                            </select>
+                        </div>
+
+                        <div id="landListings" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- Land listings will be dynamically inserted here -->
+                        </div>
+
+                        <div class="flex justify-center mt-12">
+                            <div id="pagination" class="bg-gray-800 rounded-full p-2 flex space-x-2">
+                                <!-- Pagination will be dynamically inserted here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Land data
+        const landData = [
+            {
+                id: 1,
+                title: 'California Farmland',
+                location: 'California',
+                type: 'Agricultural',
+                riskLevel: 'Low',
+                acres: 10,
+                price: 45000,
+                image: 'https://m.foolcdn.com/media/dubs/images/Farm.width-880.jpg'
+            },
+            {
+                id: 2,
+                title: 'Colorado Mountain Land',
+                location: 'Colorado',
+                type: 'Development',
+                riskLevel: 'Medium',
+                acres: 15,
+                price: 72000,
+                image: 'https://photos.zillowstatic.com/fp/5a70a2a25bef6b2e5b7f92a370781b9f-p_e.jpg'
+            },
+            {
+                id: 3,
+                title: 'Texas Development Plot',
+                location: 'Texas',
+                type: 'Development',
+                riskLevel: 'High',
+                acres: 20,
+                price: 95000,
+                image: 'https://media.gettyimages.com/id/1002939918/video/sunset-suburb-real-estate-market.jpg?s=640x640&k=20&c=fNrHoUYanTkm4uWEWdXsln86PICNZs5RMK31ZT5BWh4='
+            },
+            {
+                id: 4,
+                title: 'Arizona Desert Land',
+                location: 'Arizona',
+                type: 'Residential',
+                riskLevel: 'Medium',
+                acres: 25,
+                price: 55000,
+                image: 'https://www.forbesglobalproperties.com/wp-content/uploads/2024/02/003-9-1-1600x900.jpg'
+            }
+        ];
+
+        // Render land listings
+        function renderListings(filteredData) {
+    const listingsContainer = document.getElementById('landListings');
+    listingsContainer.innerHTML = '';
+
+    filteredData.forEach(land => {
+        const landCard = document.createElement('div');
+        landCard.className = 'bg-gray-800 rounded-xl p-6 hover:scale-105 transition';
+        landCard.innerHTML = `
+            <a href="detail.html?id=${land.id}">
+                <img src="${land.image}" alt="${land.title}" class="rounded-lg mb-4 h-48 w-full object-cover" />
+            </a>
+            <h3 class="text-xl font-bold mb-2">${land.title}</h3>
+            <div class="flex justify-between mb-4">
+                <span class="bg-${land.riskLevel === 'Low' ? 'green' : land.riskLevel === 'Medium' ? 'purple' : 'red'}-500/20 text-${land.riskLevel === 'Low' ? 'green' : land.riskLevel === 'Medium' ? 'purple' : 'red'}-400 px-3 py-1 rounded-full">${land.riskLevel} Risk</span>
+                <span class="text-blue-400">${land.acres} Acres</span>
+            </div>
+            <div class="flex justify-between items-center">
+                <p class="text-lg font-bold gradient-text">$${land.price.toLocaleString()}</p>
+                <button class="px-4 py-2 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-full">
+                    Invest
+                </button>
+            </div>
+        `;
+        listingsContainer.appendChild(landCard);
+    });
+}
+
+        // Filter and search functionality
+        function filterAndSearchListings() {
+            const location = document.getElementById('locationFilter').value;
+            const landTypes = Array.from(document.querySelectorAll('.landTypeFilter:checked')).map(el => el.value);
+            const minPrice = document.getElementById('minPrice').value;
+            const maxPrice = document.getElementById('maxPrice').value;
+            const riskLevel = document.getElementById('riskFilter').value;
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+
+            let filteredData = landData.filter(land => {
+                const matchLocation = !location || land.location === location;
+                const matchLandType = landTypes.length === 0 || landTypes.includes(land.type);
+                const matchMinPrice = !minPrice || land.price >= parseFloat(minPrice);
+                const matchMaxPrice = !maxPrice || land.price <= parseFloat(maxPrice);
+                const matchRiskLevel = !riskLevel || land.riskLevel === riskLevel;
+                const matchSearch = !searchTerm || 
+                    land.title.toLowerCase().includes(searchTerm) || 
+                    land.location.toLowerCase().includes(searchTerm) || 
+                    land.type.toLowerCase().includes(searchTerm);
+
+                return matchLocation && matchLandType && matchMinPrice && matchMaxPrice && matchRiskLevel && matchSearch;
+            });
+
+            // Sorting
+            const sortValue = document.getElementById('sortSelect').value;
+            if (sortValue === 'price') {
+                filteredData.sort((a, b) => a.price - b.price);
+            } else if (sortValue === 'risk') {
+                const riskOrder = { 'Low': 1, 'Medium': 2, 'High': 3 };
+                filteredData.sort((a, b) => riskOrder[a.riskLevel] - riskOrder[b.riskLevel]);
+            }
+
+            renderListings(filteredData);
+        }
+
+        // Event Listeners
+        document.getElementById('applyFilters').addEventListener('click', filterAndSearchListings);
+        document.getElementById('searchInput').addEventListener('input', filterAndSearchListings);
+        document.getElementById('sortSelect').addEventListener('change', filterAndSearchListings);
+        document.querySelectorAll('.landTypeFilter').forEach(checkbox => {
+            checkbox.addEventListener('change', filterAndSearchListings);
+        });
+        document.getElementById('locationFilter').addEventListener('change', filterAndSearchListings);
+        document.getElementById('riskFilter').addEventListener('change', filterAndSearchListings);
+
+        // Initial render
+        renderListings(landData);
+    </script>
+</body>
+</html>

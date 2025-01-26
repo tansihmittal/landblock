@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LandBlock - Fractional Land NFT Ecosystem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f1624 0%, #1a2b3c 100%);
+            color: #e0e7ff;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #6ee7b7 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .neon-border {
+            border: 2px solid transparent;
+            background: linear-gradient(#0f1624, #0f1624) padding-box,
+                        linear-gradient(135deg, #6ee7b7, #3b82f6) border-box;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="container mx-auto px-6 max-w-6xl">
+        <header class="py-6 flex justify-between items-center">
+            <div class="text-3xl font-bold gradient-text">LandBlock</div>
+            
+            <nav class="flex space-x-4">
+                <button class="px-6 py-2 rounded-full bg-gradient-to-r from-green-400 to-blue-500 text-white hover:from-green-500 hover:to-blue-600 transition-all duration-300">
+                    Connect Wallet
+                </button>
+                <a href="listing.html"><button class="px-6 py-2 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 text-white hover:from-purple-500 hover:to-pink-600 transition-all duration-300">
+                    Listing
+                </button></a>
+                
+            </nav>
+        </header>
+        
+        <main>
+            <section class="grid md:grid-cols-2 gap-12 items-center py-16">
+                <div>
+                    <h1 class="text-5xl font-bold mb-6 leading-tight">
+                        Blockchain-Powered <br>
+                        <span class="gradient-text">Land Tokenization</span>
+                    </h1>
+                    <p class="text-gray-300 mb-8 text-lg">
+                        Transform real estate investment through fractional NFT ownership. 
+                        Secure, transparent, and democratized land investment ecosystem.
+                    </p>
+
+                    <div class="space-y-4 mb-10">
+                        <div class="flex items-center space-x-4 neon-border rounded-lg p-4">
+                            <div class="bg-green-500/20 p-3 rounded-full">
+                                <svg class="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 12l-5-5 1.5-1.5L10 9l3.5-3.5L15 7l-5 5z"/>
+                                </svg>
+                            </div>
+                            <span class="text-gray-200">Blockchain-Secured Land Parcels</span>
+                        </div>
+                        <div class="flex items-center space-x-4 neon-border rounded-lg p-4">
+                            <div class="bg-blue-500/20 p-3 rounded-full">
+                                <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM10 6a1 1 0 011 1v3a1 1 0 11-2 0V7a1 1 0 011-1zm-1 9a1 1 0 112 0v1a1 1 0 11-2 0v-1z"/>
+                                </svg>
+                            </div>
+                            <span class="text-gray-200">Fractional NFT Ownership</span>
+                        </div>
+                    </div>
+
+                    <div class="flex space-x-4">
+                        <input 
+                            type="email" 
+                            placeholder="Enter your email" 
+                            class="flex-grow px-5 py-3 bg-gray-800 border-2 border-gray-700 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                        <button 
+                            class="px-8 py-3 rounded-full bg-gradient-to-r from-green-400 to-blue-500 text-white hover:from-green-500 hover:to-blue-600 transition-all duration-300"
+                        >
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-green-400 to-blue-500 rounded-xl blur-xl opacity-40"></div>
+                    <img 
+                        src="3d-rendering-isometric-house-removebg-preview.png" 
+                        alt="Land Parcels" 
+                        class="relative rounded-xl shadow-2xl transform hover:scale-105 transition-transform duration-300"
+                    >
+                </div>
+            </section>
+
+            <section class="py-16">
+                <h2 class="text-4xl font-bold text-center mb-16 gradient-text">
+                    How LandBlock Transforms Investment
+                </h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="neon-border p-6 rounded-xl hover:scale-105 transition-transform duration-300">
+                        <div class="text-5xl font-bold gradient-text mb-4">01</div>
+                        <h3 class="text-xl font-semibold mb-3 text-white">Land Verification</h3>
+                        <p class="text-gray-300">Advanced SKP file documentation ensures land authenticity</p>
+                    </div>
+                    <div class="neon-border p-6 rounded-xl hover:scale-105 transition-transform duration-300">
+                        <div class="text-5xl font-bold gradient-text mb-4">02</div>
+                        <h3 class="text-xl font-semibold mb-3 text-white">Tokenization</h3>
+                        <p class="text-gray-300">Convert verified lands into blockchain-secured NFTs</p>
+                    </div>
+                    <div class="neon-border p-6 rounded-xl hover:scale-105 transition-transform duration-300">
+                        <div class="text-5xl font-bold gradient-text mb-4">03</div>
+                        <h3 class="text-xl font-semibold mb-3 text-white">Investment</h3>
+                        <p class="text-gray-300">Investors purchase fractional NFTs with verifiable ownership</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="py-8 text-center text-gray-400">
+            © 2024 LandBlock. Transforming Real Estate Investments.
+        </footer>
+    </div>
+</body>
+</html>

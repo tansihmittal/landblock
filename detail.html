@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LandBlock - Fractional Farmland Investments</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f1624 0%, #1a2b3c 100%);
+            color: #e0e7ff;
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #6ee7b7 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto px-6 max-w-7xl">
+        <header class="py-6 flex justify-between items-center">
+            <a href="index.html">            <div class="text-3xl font-bold gradient-text">LandBlock</div>
+            </a>
+            <nav class="flex space-x-4 items-center">
+                <a href="listing.html" class="text-gray-300 hover:text-white">Marketplace</a>
+                <a href="#" class="text-gray-300 hover:text-white">Portfolio</a>
+                <button class="px-5 py-2 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-full hover:scale-105 transition">
+                    Connect Wallet
+                </button>
+            </nav>
+        </header>
+
+        <main>
+            <section class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <img 
+                        src="https://media.istockphoto.com/id/1328004520/photo/healthy-young-soybean-crop-in-field-at-dawn.jpg?s=612x612&w=0&k=20&c=XRw20PArfhkh6LLgFrgvycPLm0Uy9y7lu9U7fLqabVY=" 
+                        alt="California Farmland" 
+                        class="rounded-2xl shadow-2xl mb-6"
+                    />
+                    <div class="grid grid-cols-4 gap-4">
+                        <img 
+                            src="https://imageio.forbes.com/specials-images/imageserve/62be10f32ce37625d88bca9b/Tractor-spraying-pesticides-on-soybean-field--with-sprayer-at-spring/960x0.jpg?height=423&width=711&fit=bounds" 
+                            alt="Farmland Details" 
+                            class="rounded-lg opacity-80 hover:opacity-100 transition"
+                        />
+                        <img 
+                            src="https://propertypanda.com/storage/images/blog/123/blog%20image100.jpg" 
+                            alt="Farmland Landscape" 
+                            class="rounded-lg opacity-80 hover:opacity-100 transition"
+                        />
+                        <img 
+                            src="https://imageio.forbes.com/specials-images/imageserve/62be10f32ce37625d88bca9b/Tractor-spraying-pesticides-on-soybean-field--with-sprayer-at-spring/960x0.jpg?height=423&width=711&fit=bounds" 
+                            alt="Farm Equipment" 
+                            class="rounded-lg opacity-80 hover:opacity-100 transition"
+                        />
+                        <img 
+                            src="https://m.foolcdn.com/media/dubs/images/Farm.width-880.jpg" 
+                            alt="Crop Fields" 
+                            class="rounded-lg opacity-80 hover:opacity-100 transition"
+                        />
+                    </div>
+                </div>
+
+                <div>
+                    <h1 class="text-4xl font-bold mb-4 gradient-text">California Farmland</h1>
+                    <div class="flex items-center mb-6">
+                        <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full mr-4">Low Risk</span>
+                        <span class="text-gray-400">10 Acres - Agricultural Land</span>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-xl p-6 mb-6">
+                        <div class="grid grid-cols-3 gap-4">
+                            <div>
+                                <p class="text-gray-400">Total Value</p>
+                                <p class="font-bold text-xl">$45,000</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-400">NFT Price</p>
+                                <p class="font-bold text-xl">0.5 ETH</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-400">Annual Yield</p>
+                                <p class="font-bold text-xl text-green-400">4.2%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h3 class="text-2xl font-bold mb-4">Property Description</h3>
+                        <p class="text-gray-300">
+                            Prime agricultural land located in the heart of California's Central Valley. 
+                            Ideal for sustainable farming, with rich soil and consistent water access. 
+                            Currently cultivating high-value crops including almonds and organic vegetables.
+                        </p>
+                    </div>
+
+                    <div class="mb-6">
+                        <h3 class="text-2xl font-bold mb-4">Investment Highlights</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>✓ Verified land ownership documentation</li>
+                            <li>✓ Consistent historical yield performance</li>
+                            <li>✓ Water rights included</li>
+                            <li>✓ Blockchain-secured fractional ownership</li>
+                            <li>✓ ESG Compliant Investment</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex space-x-4">
+                        <button class="flex-grow px-6 py-3 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-lg hover:scale-105 transition">
+                            Purchase NFT
+                        </button>
+                        <button class="flex-grow px-6 py-3 bg-gray-700 text-white rounded-lg hover:scale-105 transition">
+                            Download Documents
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt-16">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 rounded-xl p-8">
+                        <h3 class="text-2xl font-bold mb-6 gradient-text">Performance History</h3>
+                        <canvas id="yieldChart" height="300"></canvas>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-xl p-8">
+                        <h3 class="text-2xl font-bold mb-6 gradient-text">Property Details</h3>
+                        <div class="grid grid-cols-2 gap-4 text-gray-300">
+                            <div>
+                                <p class="text-gray-400">Location</p>
+                                <p>Central Valley, California</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-400">Zoning</p>
+                                <p>Agricultural</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-400">Soil Type</p>
+                                <p>Fertile Loam</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-400">Water Source</p>
+                                <p>Groundwater & Canal</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-400">Current Crops</p>
+                                <p>Almonds, Organic Vegetables</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-400">Land Use</p>
+                                <p>Active Cultivation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt-16">
+                <div class="bg-gray-800 rounded-xl p-8">
+                    <h3 class="text-2xl font-bold mb-6 gradient-text">Recent Transfers & Ownership</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead class="border-b border-gray-700">
+                                <tr>
+                                    <th class="py-3 px-4 text-gray-400">Transaction</th>
+                                    <th class="py-3 px-4 text-gray-400">Date</th>
+                                    <th class="py-3 px-4 text-gray-400">Amount</th>
+                                    <th class="py-3 px-4 text-gray-400">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-700">
+                                    <td class="py-4 px-4">NFT #1234 Transfer</td>
+                                    <td class="py-4 px-4">Jan 15, 2024</td>
+                                    <td class="py-4 px-4">0.5 ETH</td>
+                                    <td class="py-4 px-4">
+                                        <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full">Completed</span>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-700">
+                                    <td class="py-4 px-4">Fractional Share Purchase</td>
+                                    <td class="py-4 px-4">Jan 10, 2024</td>
+                                    <td class="py-4 px-4">0.25 ETH</td>
+                                    <td class="py-4 px-4">
+                                        <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full">Completed</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 px-4">Initial Listing</td>
+                                    <td class="py-4 px-4">Jan 5, 2024</td>
+                                    <td class="py-4 px-4">10 ETH Total</td>
+                                    <td class="py-4 px-4">
+                                        <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full">Initial Offering</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt-16">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-800 rounded-xl p-8 card-hover">
+                        <h4 class="text-xl font-bold mb-4 gradient-text">Sustainability Impact</h4>
+                        <p class="text-gray-300 mb-4">Our farming practices reduce carbon emissions and promote biodiversity.</p>
+                        <div class="flex items-center">
+                            <span class="text-green-400 text-3xl font-bold mr-2">75%</span>
+                            <span class="text-gray-400">Lower Carbon Footprint</span>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 rounded-xl p-8 card-hover">
+                        <h4 class="text-xl font-bold mb-4 gradient-text">Community Impact</h4>
+                        <p class="text-gray-300 mb-4">Supporting local farmers and sustainable agriculture.</p>
+                        <div class="flex items-center">
+                            <span class="text-blue-400 text-3xl font-bold mr-2">12</span>
+                            <span class="text-gray-400">Local Jobs Created</span>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 rounded-xl p-8 card-hover">
+                        <h4 class="text-xl font-bold mb-4 gradient-text">Future Potential</h4>
+                        <p class="text-gray-300 mb-4">Projected growth in agricultural technology and land value.</p>
+                        <div class="flex items-center">
+                            <span class="text-purple-400 text-3xl font-bold mr-2">6.5%</span>
+                            <span class="text-gray-400">Projected Annual Growth</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="mt-16 py-8 border-t border-gray-700">
+            <div class="text-center">
+                <p class="text-gray-400">&copy; 2024 LandBlock. All Rights Reserved.</p>
+                <div class="mt-4 space-x-4">
+                    <a href="#" class="text-gray-300 hover:text-white">Privacy Policy</a>
+                    <a href="#" class="text-gray-300 hover:text-white">Terms of Service</a>
+                    <a href="#" class="text-gray-300 hover:text-white">Contact</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('yieldChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['2019', '2020', '2021', '2022', '2023'],
+                datasets: [{
+                    label: 'Annual Yield (%)',
+                    data: [3.5, 3.8, 4.0, 4.2, 4.5],
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1,
+                    fill: true,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        title: { display: true, text: 'Yield (%)' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
